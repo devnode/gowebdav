@@ -130,7 +130,7 @@ func (c *Client) propfind(path string, self bool, body string, resp interface{},
 	}
 	defer rs.Body.Close()
 
-	if rs.StatusCode != 207 {
+	if rs.StatusCode != 200 && rs.StatusCode != 207 {
 		return newPathError("PROPFIND", path, rs.StatusCode)
 	}
 
